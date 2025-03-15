@@ -10,13 +10,13 @@ if %errorlevel% neq 0 (
 )
 
 REM Clone the GitHub repository
-set REPO_URL=https://github.com/your-username/your-repo-name.git
-set PROJECT_DIR=minecraft_server
+set REPO_URL=https://github.com/Najfallik/minecraft_server_cli.git
+set PROJECT_DIR=minecraft_server_cli
 
 if exist %PROJECT_DIR% (
     echo Directory %PROJECT_DIR% already exists. Pulling latest changes...
     cd %PROJECT_DIR%
-    git pull origin main
+    git pull origin master
 ) else (
     echo Cloning repository from %REPO_URL%...
     git clone %REPO_URL% %PROJECT_DIR%

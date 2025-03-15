@@ -9,13 +9,13 @@ if ! command -v git &> /dev/null; then
 fi
 
 # Clone the GitHub repository
-REPO_URL="https://github.com/your-username/your-repo-name.git"
-PROJECT_DIR="minecraft_server"
+REPO_URL="https://github.com/Najfallik/minecraft_server_cli.git"
+PROJECT_DIR="minecraft_server_cli"
 
 if [ -d "$PROJECT_DIR" ]; then
     echo "Directory $PROJECT_DIR already exists. Pulling latest changes..."
     cd $PROJECT_DIR
-    git pull origin main
+    git pull origin master
 else
     echo "Cloning repository from $REPO_URL..."
     git clone $REPO_URL $PROJECT_DIR
