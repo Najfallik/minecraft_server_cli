@@ -20,14 +20,16 @@ def download_server_jar(url, save_path):
                 progress.update(task, advance=len(chunk))
 
     console.print(f"[bold green]Server JAR downloaded to {save_path}[/bold green]")
+    return
 
 def run_initial_server_setup(server_jar):
     """Run the server for the first time to generate files."""
     console.print("[bold yellow]Running server for the first time...[/bold yellow]")
-    process = subprocess.Popen(["java", "-Xmx1024M", "-Xms1024M", "-jar", server_jar, "nogui"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process = subprocess.Popen(["java", "-Xmx1G", "-Xms1G", "-jar", server_jar, "nogui"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     time.sleep(10)  # Wait for the server to generate files
     process.terminate()
     console.print("[bold green]Initial setup complete![/bold green]")
+    return
 
 def accept_eula():
     """Accept the EULA by modifying the eula.txt file."""
@@ -41,10 +43,11 @@ def accept_eula():
         console.print("[bold green]EULA accepted![/bold green]")
     else:
         console.print("[bold red]eula.txt not found![/bold red]")
+        return
 
 def setup_server():
     """Main function to set up the Minecraft server."""
-    server_jar_url = "https://piston-data.mojang.com/v1/objects/84194a2f286ef7c14ed7ce0090dba59902951553/server.jar"
+    server_jar_url = "https://piston-data.mojang.com/v1/objects/4707d00eb834b446575d89a61a11b5d548d8c001/server.jar"
     server_jar_path = "server.jar"
 
     if not os.path.exists(server_jar_path):
