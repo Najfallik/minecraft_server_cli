@@ -27,5 +27,15 @@ REM Install required Python libraries
 echo Installing required Python libraries...
 pip install -r requirements.txt
 
-echo Project initialized successfully! Run 'python main.py' to start.
+REM Ask if the user wants to run the interface
+set /p RUN_INTERFACE="Do you want to run the interface now? (y/N): "
+
+if /i "%RUN_INTERFACE%"=="y" (
+    echo Running the interface...
+    cls
+    python main.py
+) else (
+    echo Project initialized successfully! Run 'python main.py' to start the interface.
+)
+
 pause

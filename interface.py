@@ -7,11 +7,14 @@ from server_controls import start_server, stop_server
 
 def main_menu():
     """Display the main menu and handle user input."""
-    console.print(Panel("[bold]Minecraft Server Interface[/bold]", title="Welcome", border_style="blue"))
-    console.print("1. Set Up Server")
-    console.print("2. Start Server")
-    console.print("3. Stop Server")
-    console.print("4. Exit")
+    menu_content = (
+        "[bold]1.[/bold] Set Up Server\n"
+        "[bold]2.[/bold] Start Server\n"
+        "[bold]3.[/bold] Stop Server\n"
+        "[bold]4.[/bold] Exit"
+    )
+    panel = Panel(menu_content, title="[bold]Sikko's Minecraft Server CLI[/bold]", border_style="blue")
+    console.print(panel)
 
     choice = Prompt.ask("Choose an option", choices=["1", "2", "3", "4"])
 
